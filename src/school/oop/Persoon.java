@@ -33,6 +33,16 @@ public class Persoon {
     }
 
     public boolean verkoop(Game g, Persoon koper) {
+        if(this.mijnGames.isEmpty())
+        {
+            return false;
+        }
+        for (Game item : this.mijnGames) {
+            if (item.equals(g)) {
+                break;
+            }
+            return false;
+        }
         if (koper.koop(g)) {
             this.mijnGames.remove(g);
             this.budget += g.huidigeWaarde();
@@ -43,10 +53,11 @@ public class Persoon {
 
     @Override
     public String toString() {
-        String returnString = this.naam + " heeft een budget van " + NumberFormat.getCurrencyInstance().format(this.getBudget()).replaceFirst("\\u00A0", "") + " en bezit de volgende games:\n";
+        String returnString = this.naam + " heeft een budget van " + NumberFormat.getCurrencyInstance().format(this.getBudget()).replaceFirst("\\u00A0", "") + " en bezit de volgende games:";
         for (Game game : this.mijnGames) {
-            returnString += game.toString();
             returnString += "\n";
+            returnString += game.toString();
+
         }
         return returnString;
     }
