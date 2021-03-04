@@ -1,6 +1,7 @@
 package school.oop;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +14,12 @@ public class Main {
 
         Persoon p1 = new Persoon("Eric", 200);
         Persoon p2 = new Persoon("Hans", 55);
+
+        ArrayList<Game> teKoop = new ArrayList<Game>();
+        teKoop.add(g1);
+        teKoop.add(new Game("Mario Kart 8", 2019, 35.00));
+        ArrayList<Game> nogNietInBezit = p1.bepaalGamesNietInBezit(teKoop);
+        System.out.println("p1 heeft de volgende games nog niet: " + nogNietInBezit.toString());
 
         System.out.println("p1 koopt g1:" + (p1.koop(g1) ? "" : " niet") + " gelukt");
         System.out.println("p1 koopt g2:" + (p1.koop(g2) ? "" : " niet") + " gelukt");

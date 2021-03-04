@@ -50,6 +50,15 @@ public class Persoon {
         }
         return false;
     }
+    public ArrayList<Game> bepaalGamesNietInBezit( ArrayList<Game> games){
+        ArrayList<Game> notOwnedGames = new ArrayList<Game>();
+        for (Game item : games){
+            if(!this.mijnGames.contains(item)){
+                notOwnedGames.add(item);
+            }
+        }
+        return notOwnedGames;
+    }
 
     @Override
     public String toString() {
