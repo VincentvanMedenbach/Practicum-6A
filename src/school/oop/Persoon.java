@@ -71,4 +71,14 @@ public class Persoon {
         return returnString;
     }
 
+    // Voor practicum 6B - KEREM
+    public Game zoekGameOpNaam(String gNm) {
+        Game gevonden = null;
+
+        for (Game game : mijnGames) {
+            if (gNm.equals(game.getNaam())) {
+                gevonden = game;
+            }
+        }
+
 }
